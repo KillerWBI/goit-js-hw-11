@@ -4,4 +4,7 @@ export default {
     build: {
         outDir: '../dist',
     },
+    define: {
+    global: 'window',
+  },
 }
