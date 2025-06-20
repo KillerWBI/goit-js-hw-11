@@ -1,10 +1,11 @@
 
 export default {
-    root: './src',
-    build: {
-        outDir: '../dist',
-    },
-    define: {
-    global: 'window',
+  root: './src',
+  base: '/goit-js-hw-11/', // 👈 ОБЯЗАТЕЛЬНО ДОБАВЬ
+  build: {
+    outDir: '../dist',
   },
-}
+  define: {
+    global: 'window', // 👈 для simplelightbox
+  },
+};
