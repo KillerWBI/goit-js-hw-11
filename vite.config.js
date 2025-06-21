@@ -13,7 +13,7 @@ export const alias = {
 
 export default {
   root: './src',
-  base: '/goit-js-hw-11/', // ← название твоего репозитория
+  base: '/goit-js-hw-11/',
   build: {
     outDir: '../dist',
   },
