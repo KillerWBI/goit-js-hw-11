@@ -31,12 +31,12 @@ export function clearGallery() {
   galleryContainer.innerHTML = '';
 }
 
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.loaderContainer');
 
 export function showLoader() {
-  loader.classList.add('visible');
+  loader.classList.remove('novisible');
 }
 
 export function hideLoader() {
-  loader.classList.remove('visible');
+  loader.classList.add('novisible');
 }
