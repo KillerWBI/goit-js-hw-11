@@ -1,12 +1,9 @@
-import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm.js';
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryContainer = document.querySelector('.gallery');
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
+let lightbox;
 
 export function clearGallery() {
   galleryContainer.innerHTML = '';
@@ -29,7 +26,15 @@ export function createGallery(images) {
 
   galleryContainer.insertAdjacentHTML('beforeend', markup);
 
+if (!lightbox){
+  lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+  });
+}else {
   lightbox.refresh();
+}
+
 }
 
 const loader = document.querySelector('.loaderContainer');
