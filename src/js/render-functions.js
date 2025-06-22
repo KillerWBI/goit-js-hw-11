@@ -3,11 +3,20 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryContainer = document.querySelector('.gallery');
 
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+
+export function clearGallery() {
+  galleryContainer.innerHTML = '';
+}
+
 export function createGallery(images) {
   const markup = images.map(image => `
     <li>
       <a class="gallery__item" href="${image.largeImageURL}">
-        <img class="gallery__image" src="${image.webformatURL}" alt="${image.tags}">
+        <img class="gallery__image" src="${image.webformatURL}" alt="${image.tags}" />
       </a>
       <span>
         <div><h5>Likes</h5><p>${image.likes}</p></div>
@@ -20,15 +29,7 @@ export function createGallery(images) {
 
   galleryContainer.insertAdjacentHTML('beforeend', markup);
 
-
-   let lightbox = new SimpleLightbox('.gallery a', {
-      captionsData: 'alt',
-      captionDelay: 250,
-    });
-}
-
-export function clearGallery() {
-  galleryContainer.innerHTML = '';
+  lightbox.refresh();
 }
 
 const loader = document.querySelector('.loaderContainer');

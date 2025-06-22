@@ -8,6 +8,7 @@ const searchInput = document.querySelector('input[name="search-text"]');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  clearGallery();
   showLoader();
   const query = searchInput.value.trim();
   if (!query)  {
@@ -23,11 +24,8 @@ form.addEventListener('submit', (event) => {
 
   getImagesByQuery(query).then(data => {
     if (data && data.hits && data.hits.length > 0) {
-      clearGallery();
-      hideLoader();
       createGallery(data.hits);
     } else {
-      clearGallery();
       iziToast.error({
         title: 'Error',
         message: 'Sorry, no images found. Try again!',
@@ -37,7 +35,6 @@ form.addEventListener('submit', (event) => {
     }
   })
   .catch(error => {
-    clearGallery();
     iziToast.error({
       title: 'Error',
       message: `An error occurred: ${error.message}`,
