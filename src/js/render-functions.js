@@ -37,12 +37,20 @@ if (!lightbox){
 
 }
 
-const loader = document.querySelector('.loaderContainer');
 
-export function showLoader() {
-  loader.classList.remove('novisible');
+export function showLoader(load) {
+  load.classList.remove('novisible');
 }
 
-export function hideLoader() {
-  loader.classList.add('novisible');
+export function hideLoader(load) {
+  load.classList.add('novisible');
+}
+
+export function showEndOfGallery (){
+  const moreOfGallery = document.querySelector('.load-more');
+  moreOfGallery.classList.remove('novisible');
+}
+export function hideEndOfGallery (){
+  const moreOfGallery = document.querySelector('.load-more');
+  moreOfGallery.classList.add('novisible');
 }
